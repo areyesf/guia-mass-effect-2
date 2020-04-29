@@ -1,0 +1,71 @@
+{
+    "mains": [
+        {
+            "title": "Prólogo",
+            "status": false,
+            "url": ""
+        },
+        {
+            "title": "Progreso de la libertad",
+            "status": false,
+            "url": ""
+        },
+        {
+            "title": "La ciudadela: El consejo",
+            "status": false,
+            "url": ""
+        },
+        {
+            "title": "Expediente: El Profesor",
+            "status": false,
+            "url": ""
+        },
+        {
+            "title": "Expediente: Arcángel",
+            "status": false,
+            "url": ""
+        }
+    ],
+    "secondaries": [
+        {
+            "title": "Normandía",
+            "missions": [
+                {
+                    "title": "Conexiones FBA",
+                    "status": false,
+                    "url": ""
+                },
+                {
+                    "title": "Brandy helado de Serrice",
+                    "status": false,
+                    "url": ""
+                },
+                {
+                    "title": "Ingredientes especiales",
+                    "status": false,
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "title": "Ciudadela",
+            "missions": [
+                {
+                    "title": "Suchi de Krogan",
+                    "status": false,
+                    "url": ""
+                },
+                {
+                    "title": "Se gesta un crimen",
+                    "status": false,
+                    "url": ""
+                },
+                {
+                    "title": "Hallada identificacíon falsa *",
+                    "status": false,
+                    "url": ""
+                }
+            ]
+        }
+    ]
+}
