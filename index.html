@@ -39,11 +39,14 @@
                   'flex-md-row',
                   ]"
                 >
-                  <div v-on:click="changeStatusMain(index)" >
+                  <div class="col my-2 text-center" v-on:click="changeStatusMain(index)" >
                     <i
                       :class="['far', 
                       mision.status?'fa-check-circle':'fa-circle',
-                      'mr-2']"
+                      'mr-2',
+                      'd-none',
+                      'd-md-inline'
+                      ]"
                     ></i>
                     {{mision.title}}
                   </div>
