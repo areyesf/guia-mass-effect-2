@@ -4,7 +4,8 @@ html {
 section:before{
     display:block;
     position:relative;
-    margin-top: -100px;
+    /* margin-top: -50px; */
+    padding-top:-100px;
     height:100px;
     content: " ";
     visibility:hidden;
