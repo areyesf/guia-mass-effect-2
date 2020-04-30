@@ -1,0 +1,11 @@
+html {
+    scroll-behavior: smooth;
+}
+h3:before{
+    display:block;
+    position:relative;
+    margin-top: -100px;
+    height:100px;
+    content: " ";
+    visibility:hidden;
+}

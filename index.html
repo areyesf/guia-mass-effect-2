@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Check List | Mass Effect 2</title>
     <link rel="stylesheet" href="./sources/bootstrap.min.css" />
+    <link rel="stylesheet" href="./sources/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -14,6 +15,7 @@
   </head>
   <body class="bg-primary">
     <div id="app">
+      <!-- NAVBAR -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="#header">Misiones</a>
         <button
@@ -36,17 +38,24 @@
             <li class="nav-item">
               <a class="nav-link" href="#secondary-missions">Secundarias</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Reset</a>
+            </li>
           </ul>
         </div>
       </nav>
+      <!-- CONTAINER MISSIONS -->
       <div class="container px-0">
-        <div class="col-12 col-md-8 mx-auto px-0">
-          <div class="content">
+        <div class="row">
+          <!-- HEADER -->
+          <div class="col-12 col-md-8">
             <header class="text-center pt-3">
               <h1 class="text-white" id="header">Mass Effect 2</h1>
               <p>Check list</p>
             </header>
-            <!-- MAIN MISSIONS -->
+          </div>
+          <!-- MAIN MISSIONS -->
+          <div class="col-12 col-md-8">
             <section id="main-missions">
               <h3 class="text-white my-3 text-center text-md-left">
                 Misiones Principales
@@ -55,16 +64,16 @@
                 <div class="item" v-for="(mision, index) in missionsList.mains">
                   <li
                     :class="[
-                    'list-group-item', 
-                    mision.status ? 'bg-success': 'bg-dark', 
-                    mision.status ? 'text-primary':'text-white', 
-                    'text-left',
-                    'btn',
-                    'd-flex',
-                    'align-items-center',
-                    'justify-content-between',
-                    'px-1'
-                    ]"
+                      'list-group-item', 
+                      mision.status ? 'bg-success': 'bg-dark', 
+                      mision.status ? 'text-primary':'text-white', 
+                      'text-left',
+                      'btn',
+                      'd-flex',
+                      'align-items-center',
+                      'justify-content-between',
+                      'px-1'
+                      ]"
                   >
                     <div
                       class="col my-2 text-left px-1"
@@ -72,11 +81,11 @@
                     >
                       <i
                         :class="['far', 
-                        mision.status?'fa-check-circle':'fa-circle',
-                        'mr-2',
-                        'd-none',
-                        'd-md-inline'
-                        ]"
+                          mision.status?'fa-check-circle':'fa-circle',
+                          'mr-2',
+                          'd-none',
+                          'd-md-inline'
+                          ]"
                       ></i>
                       {{mision.title}}
                     </div>
@@ -90,7 +99,9 @@
                 </div>
               </ul>
             </section>
-            <!-- SECONDARIES MISSIONS -->
+          </div>
+          <!-- SECONDARIES MISSIONS -->
+          <div class="col-12 col-md-8">
             <section id="secondary-missions">
               <h3 class="text-white py-3 text-center text-md-left">
                 Misiones Secundarias
@@ -108,16 +119,16 @@
                   <ul class="list-group">
                     <li
                       :class="[
-                      'list-group-item', 
-                      submision.status ? 'bg-success': 'bg-dark', 
-                      submision.status ? 'text-primary':'text-white', 
-                      'text-left',
-                      'btn',
-                      'd-flex',
-                      'align-items-center',
-                      'justify-content-between',
-                      'px-1'
-                      ]"
+                        'list-group-item', 
+                        submision.status ? 'bg-success': 'bg-dark', 
+                        submision.status ? 'text-primary':'text-white', 
+                        'text-left',
+                        'btn',
+                        'd-flex',
+                        'align-items-center',
+                        'justify-content-between',
+                        'px-1'
+                        ]"
                       v-for="(submision, subindex) in missionsList.secondaries[index].missions"
                     >
                       <div
@@ -126,12 +137,12 @@
                       >
                         <i
                           :class="[
-                        'far', 
-                        submision.status?'fa-check-circle':'fa-circle',
-                        'mr-1',
-                        'd-none',
-                        'd-md-inline'
-                        ]"
+                          'far', 
+                          submision.status?'fa-check-circle':'fa-circle',
+                          'mr-1',
+                          'd-none',
+                          'd-md-inline'
+                          ]"
                         ></i>
                         {{submision.title}}
                       </div>
@@ -146,8 +157,12 @@
                 </li>
               </ul>
             </section>
+          </div>
+          <!-- FOOTER -->
+          <div class="col-12 col-md-8">
             <footer
               class="mx-0 px-3 my-3 bg-white card-footer d-flex align-items-center justify-content-between"
+              id="footer"
             >
               <div>
                 <p class="card-text">Desarrollo por andrés reyes</p>
