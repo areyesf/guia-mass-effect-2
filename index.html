@@ -14,61 +14,50 @@
   </head>
   <body class="bg-primary">
     <div id="app">
-      <div class="container my-5">
-        <div class="col-12 col-md-8 mx-auto">
-          <header class="text-center">
-            <h1 class="text-white">Mass Effect 2</h1>
-            <p>Check list</p>
-          </header>
-          <!-- MAIN MISSIONS -->
-          <section id="main-missions">
-            <h3 class="text-white my-3 text-center text-md-left">Misiones Principales</h3>
-            <ul class="list-group">
-              <div class="item" v-for="(mision, index) in missionsList.mains">
-                <li
-                  :class="[
-                  'list-group-item', 
-                  mision.status ? 'bg-success': 'bg-dark', 
-                  mision.status ? 'text-primary':'text-white', 
-                  'text-left',
-                  'btn',
-                  'd-flex',
-                  'align-items-center',
-                  'justify-content-between',
-                  'px-1'
-                  ]"
-                >
-                  <div class="col my-2 text-left px-1" v-on:click="changeStatusMain(index)" >
-                    <i
-                      :class="['far', 
-                      mision.status?'fa-check-circle':'fa-circle',
-                      'mr-2',
-                      'd-none',
-                      'd-md-inline'
-                      ]"
-                    ></i>
-                    {{mision.title}}
-                  </div>
-                  <a class="badge badge-pill badge-primary my-1 my-md-0 py-3 py-md-1" target="_blank" :href="mision.url">Ver Detalle</a>
-                </li>
-              </div>
-            </ul>
-          </section>
-          <!-- SECONDARIES MISSIONS -->
-          <section id="secondary-missions">
-            <h3 class="text-white py-3 text-center text-md-left">Misiones Secundarias</h3>
-            <ul class="list-group">
-              <li
-                class="bg-dark text-white list-group mx-0 px-0"
-                v-for="(mision, index) in missionsList.secondaries"
-              >
-                <h5 class="text-white p-3 m-0 text-center text-md-left bg-primary">{{mision.title}}:</h5>
-                <ul class="list-group">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#header">Misiones</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar"
+          aria-controls="navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#main-missions">Principales</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#secondary-missions">Secundarias</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container px-0">
+        <div class="col-12 col-md-8 mx-auto px-0">
+          <div class="content">
+            <header class="text-center pt-3">
+              <h1 class="text-white" id="header">Mass Effect 2</h1>
+              <p>Check list</p>
+            </header>
+            <!-- MAIN MISSIONS -->
+            <section id="main-missions">
+              <h3 class="text-white my-3 text-center text-md-left">
+                Misiones Principales
+              </h3>
+              <ul class="list-group">
+                <div class="item" v-for="(mision, index) in missionsList.mains">
                   <li
                     :class="[
                     'list-group-item', 
-                    submision.status ? 'bg-success': 'bg-dark', 
-                    submision.status ? 'text-primary':'text-white', 
+                    mision.status ? 'bg-success': 'bg-dark', 
+                    mision.status ? 'text-primary':'text-white', 
                     'text-left',
                     'btn',
                     'd-flex',
@@ -76,41 +65,118 @@
                     'justify-content-between',
                     'px-1'
                     ]"
-                    v-for="(submision, subindex) in missionsList.secondaries[index].missions"
                   >
-                    <div @click="changeStatusSecondary(index, subindex)" class="col my-2 text-left px-1">
+                    <div
+                      class="col my-2 text-left px-1"
+                      v-on:click="changeStatusMain(index)"
+                    >
                       <i
-                      :class="[
-                      'far', 
-                      submision.status?'fa-check-circle':'fa-circle',
-                      'mr-1',
-                      'd-none',
-                      'd-md-inline'
-                      ]"
+                        :class="['far', 
+                        mision.status?'fa-check-circle':'fa-circle',
+                        'mr-2',
+                        'd-none',
+                        'd-md-inline'
+                        ]"
                       ></i>
-                      {{submision.title}}
+                      {{mision.title}}
                     </div>
-                    <a class="badge badge-pill badge-primary my-1 my-md-0 py-3 py-md-1" target="_blank" :href="submision.url">Ver Detalle</a>
+                    <a
+                      class="badge badge-pill badge-primary my-1 my-md-0 py-3 py-md-1"
+                      target="_blank"
+                      :href="mision.url"
+                      >Ver Detalle</a
+                    >
                   </li>
-                </ul>
-              </li>
-            </ul>
-          </section>
-          <footer
-            class="mx-0 px-3 my-3 bg-white card-footer d-flex align-items-center justify-content-between"
-          >
-            <div>
-              <p class="card-text">Desarrollo por andrés reyes</p>
-            </div>
-            <button class="btn btn-danger btn-sm" v-on:click="resetList">
-              Reset
-            </button>
-          </footer>
+                </div>
+              </ul>
+            </section>
+            <!-- SECONDARIES MISSIONS -->
+            <section id="secondary-missions">
+              <h3 class="text-white py-3 text-center text-md-left">
+                Misiones Secundarias
+              </h3>
+              <ul class="list-group">
+                <li
+                  class="bg-dark text-white list-group mx-0 px-0"
+                  v-for="(mision, index) in missionsList.secondaries"
+                >
+                  <h5
+                    class="text-white p-3 m-0 text-center text-md-left bg-primary"
+                  >
+                    {{mision.title}}:
+                  </h5>
+                  <ul class="list-group">
+                    <li
+                      :class="[
+                      'list-group-item', 
+                      submision.status ? 'bg-success': 'bg-dark', 
+                      submision.status ? 'text-primary':'text-white', 
+                      'text-left',
+                      'btn',
+                      'd-flex',
+                      'align-items-center',
+                      'justify-content-between',
+                      'px-1'
+                      ]"
+                      v-for="(submision, subindex) in missionsList.secondaries[index].missions"
+                    >
+                      <div
+                        @click="changeStatusSecondary(index, subindex)"
+                        class="col my-2 text-left px-1"
+                      >
+                        <i
+                          :class="[
+                        'far', 
+                        submision.status?'fa-check-circle':'fa-circle',
+                        'mr-1',
+                        'd-none',
+                        'd-md-inline'
+                        ]"
+                        ></i>
+                        {{submision.title}}
+                      </div>
+                      <a
+                        class="badge badge-pill badge-primary my-1 my-md-0 py-3 py-md-1"
+                        target="_blank"
+                        :href="submision.url"
+                        >Ver Detalle</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+            <footer
+              class="mx-0 px-3 my-3 bg-white card-footer d-flex align-items-center justify-content-between"
+            >
+              <div>
+                <p class="card-text">Desarrollo por andrés reyes</p>
+              </div>
+              <button class="btn btn-danger btn-sm" v-on:click="resetList">
+                Reset
+              </button>
+            </footer>
+          </div>
         </div>
       </div>
     </div>
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="./app.js"></script>
     <!-- <script src="./testFetch.js"></script> -->
   </body>
